@@ -1,0 +1,8 @@
+# Production properties
+fazlizekiqi:
+  elasticTutorial:
+    elasticProperties:
+      username: ${USERNAME}
+      password: ${PASSWORD}
+      host: ${HOSTNAME}
+      ports: ${PORTS}

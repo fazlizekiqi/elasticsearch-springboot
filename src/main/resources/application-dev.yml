@@ -1,0 +1,8 @@
+# Development properties
+fazlizekiqi:
+  elasticTutorial:
+    elasticProperties:
+      username: "elastic"
+      password: "fazlizekiqi"
+      host: "localhost"
+      ports: 9200, 9201

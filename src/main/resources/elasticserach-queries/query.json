@@ -1,0 +1,10 @@
+{
+  "query": {
+    "match": {
+      "headline": {
+        "query": "Khloe Kardashian Kendall Jenner",
+        "operator": "or"
+      }
+    }
+  }
+}

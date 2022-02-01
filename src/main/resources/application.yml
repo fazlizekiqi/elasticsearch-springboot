@@ -1,0 +1,10 @@
+# Common properties for dev and prod
+logging:
+  level:
+    org.zalando.logbook: TRACE
+logbook:
+  format:
+    style: curl
+  write:
+    max-body-size: 20000
+

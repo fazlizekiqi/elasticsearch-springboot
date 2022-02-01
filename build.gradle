@@ -1,0 +1,49 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.2'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.fazlizekiqi'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.elasticsearch.client:elasticsearch-rest-client:7.15.2'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	compileOnly 'org.projectlombok:lombok'
+	implementation 'org.zalando:logbook-spring-boot-starter:2.14.0'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	testImplementation 'org.testcontainers:junit-jupiter:1.16.2'
+	testImplementation "org.testcontainers:testcontainers:1.16.2"
+	testImplementation 'org.testcontainers:elasticsearch:1.16.2'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+
+final APPLICATION_ROOT = 'fazlizekiqi.elasticTutorial'
+
+bootRun {
+	systemProperty 'spring.profiles.active', findProperty('profile') ?: 'dev'
+	systemProperty "${APPLICATION_ROOT}.elasticProperties.username", findProperty('elastic-user')
+	systemProperty "${APPLICATION_ROOT}.elasticProperties.password", findProperty('elastic-password')
+	systemProperty "${APPLICATION_ROOT}.elasticProperties.host", findProperty('elastic-host')
+	systemProperty "${APPLICATION_ROOT}.elasticProperties.ports", findProperty('elastic-ports')
+}
+
+test {
+	useJUnitPlatform()
+}
