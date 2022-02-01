@@ -8,12 +8,12 @@
  - Docker version 20.10.10
  
 
-###Useful links  
+### Useful links  
  - https://www.elastic.co/guide/en/kibana/current/docker.html 
  - https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html
  - https://www.youtube.com/watch?v=gS_nHTWZEJ8&t=2s
 
-Alternative: You can download elasticsearch and kibana directly in our local without the need of Docker but since we need to also have an elasticsearch environment for testing purposes we will be using Docker. 
+Alternative: You can download elasticsearch and kibana directly in your local without the need of Docker but since we need to also have an elasticsearch environment for testing purposes we will be using Docker. 
 
 Create user defined network (useful for connecting to other services attached to the same network (e.g. Kibana)):
 ```sh
@@ -140,15 +140,15 @@ Example:
 ```
 DELETE favorite_candy/_doc/1
 ```
-####Precision and recall
+#### Precision and recall
 Precision and recall determine which documents are included in the search results but precision and recall does not determine which of these return documents are more relevant than the other ( This is determined by ranking).
 
-####_Precision_
+#### _Precision_
 I want all the retrieved results to be a perfect match to the query, even if it means returning less documents. #Recall
 I want to retrieve more results even if documents may not be a perfect match to the query.
-####_Ranking_
+#### _Ranking_
 Ranking refers to ordering of the results (from most relevant results at the top, to least relevant at the bottom). Ranking is determined by a scoring algorithm, so each result is given a score and ones with the highest score are displayed at the top whereas ones with the lowest score are displayed at the bottom.
-####_Score_
+#### _Score_
 The score is a value that represents how relevant a document is to that specific query. A score is computed for each document that is a hit.
 There are multiple factors that are used to compute a document store:
 - Term Frequency (TF) (“Determines how many times each search term appears in a document”)
@@ -190,7 +190,7 @@ GET news_headlines/_search
 ```
 
 -There are 2 main ways to search in elasticsearch and these are **queries** and **aggregations**.
-###Queries 
+### Queries 
 Queries tell elastic search to retrieve documents that match/meet the criteria:
 ```
 GET news_headlines/_search
@@ -205,7 +205,7 @@ GET news_headlines/_search
   }
 }
 ```
-###Agregations
+### Agregations
 An aggregation summarises your data as metrics, statistics and other analytics i.e when we are not interested to ask elasticsearch for a specific criteria, but instead we are interested of what kind of news categories are there.
 
 
@@ -281,7 +281,7 @@ _RESPONSE_:  We are basically analysing the ENTERTAINMENT news and checking whic
 ]
 ```                
 
-####DoingMoreCombination
+#### DoingMoreCombination
 What if we want to count how many times a specific term for instance “Kardashian” has come up in the news in a specific category.
 ```
 GET news_headlines/_search
@@ -330,7 +330,7 @@ GET news_headlines/_search
 }
 ```
 
-###Precision and recall
+### Precision and recall
 ```
 GET news_headlines/_search
 {
